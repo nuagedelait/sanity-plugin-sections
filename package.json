@@ -1,0 +1,71 @@
+{
+  "name": "sanity-plugin-sections",
+  "version": "1.0.0",
+  "description": "add sections to sanity studio",
+  "keywords": [
+    "sanity",
+    "sanity-plugin"
+  ],
+  "homepage": "https://github.com/nuagedelait/sanity-plugin-sections#readme",
+  "bugs": {
+    "url": "https://github.com/nuagedelait/sanity-plugin-sections/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nuagedelait/sanity-plugin-sections.git"
+  },
+  "license": "BSD-3-Clause",
+  "author": "nuagedelait <oliver@nuagedelait.com>",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "source": "./src/index.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.esm.mjs",
+      "default": "./dist/index.esm.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.mjs",
+  "source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "sanity.json",
+    "src",
+    "v2-incompatible.js"
+  ],
+  "scripts": {
+    "build": "run-s clean && plugin-kit verify-package --silent && pkg-utils build --strict && pkg-utils --strict",
+    "clean": "rimraf dist",
+    "format": "prettier --write --cache --ignore-unknown .",
+    "link-watch": "plugin-kit link-watch",
+    "lint": "eslint .",
+    "prepublishOnly": "run-s build",
+    "watch": "pkg-utils watch --strict"
+  },
+  "dependencies": {
+    "@sanity/incompatible-plugin": "^1.0.4",
+    "@sanity/ui": "^1.2.4",
+    "groq": "^3.4.0",
+    "nanoid": "^4.0.1",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@sanity/pkg-utils": "^2.2.5",
+    "@sanity/plugin-kit": "^3.1.6",
+    "eslint": "^8.34.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^4.1.2",
+    "sanity": "^3.4.0"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "sanity": "^3"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "yalcSig": "5f65a631c7bc2bf9ddf7e45e4da03b55"
+}
